@@ -1,0 +1,40 @@
+
+
+#UpButtons {
+    display: flex;
+    justify-content: left;
+    width: 100%;
+    border-bottom: 4px solid blue;
+    align-items: stretch;
+}
+
+.UpButton{
+    text-align: center;
+    cursor: pointer;
+    flex: 0 0 200px;
+    position: relative;
+    height: 50px;
+    color: gray;
+}
+
+.active{
+    background-color: blue;
+    color: white;
+}
+
+@media (max-width: 600px) {
+
+    #UpButtons {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .UpButton{
+        cursor: pointer;
+        flex: auto;
+        position: relative;
+        height: 50px;
+        border-right: 1px solid silver;
+    }
+}

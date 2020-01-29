@@ -1,0 +1,27 @@
+#TableContent{
+    display: grid;
+    align-items: start;
+}
+
+
+#TableContent div{
+    text-align: center;
+     font-family: Roboto;
+     border-bottom: 1px solid silver;
+     border-right: 1px solid silver;
+     height: 50px;
+ }
+
+#TableContent div:hover{
+    background-color: silver;
+}
+
+@media (max-width: 600px) {
+    #TableContent{
+        display: block;
+    }
+
+    #TableContent div p{
+        margin: 0px;
+    }
+}
