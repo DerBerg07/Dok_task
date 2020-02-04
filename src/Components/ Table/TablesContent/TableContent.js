@@ -2,9 +2,10 @@ import React, {Component} from "react";
 import {contentFetchData} from '../../../redux/actions/contentData'
 import {connect} from "react-redux";
 import TableElement from "./TableElement/TableElement";
-import Url from "../../../url/url";
+import Url, {urls} from "../../../url/url";
 import {currentPageChange, CarValue} from "../../../redux/actions/currentPageData";
 import './TableContent.css'
+import {page} from "../../../redux/redusers/page";
 
 class TableContent extends Component{
         constructor(props) {
@@ -16,7 +17,19 @@ class TableContent extends Component{
 
     componentDidUpdate(nextPros) {
         if(nextPros.page.page !== this.props.page.page) {
-            this.props.fetchData(Url[this.props.page.page])
+            console.log(this.props.currentCarData);
+            switch (this.props.page.page) {
+                case 0:
+                    this.props.fetchData(urls["marks"]);
+                    break;
+                case 1:
+                   // this.props.fetchData(urls["models"][this.props.]);
+                    break;
+                case 2:
+                    console.log("hello");
+
+            }
+
         }
 
 
@@ -34,14 +47,14 @@ class TableContent extends Component{
 
     }
 
-    syleChanger = () =>{
-
-    }
 
     changeContent =(value) =>{
-            let newPage =  this.props.page.page + 1;
+        this.props.addValue(value);
+        let newPage =  this.props.page.page + 1;
             this.props.changer(newPage);
     };
+
+
 
     render() {
         const content = this.props.data.content;
@@ -68,11 +81,17 @@ class TableContent extends Component{
     }
 }
 
+
+
+//////////////STATE///////////////////////
+
 const mapStateToProps = state => {
+    console.log(state);
     return {
         data: state.content,
         err: state.err,
-        page: state.page
+        page: state.page,
+        currentCarData: state.page.currentCarData
     };
 };
 

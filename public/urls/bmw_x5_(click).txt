@@ -1,0 +1,26 @@
+[
+   {
+      "modification_name":"2.0 дизель",
+      "modification_id":"501"
+   },
+   {
+      "modification_name":"2.0 бензиновый гибрид",
+      "modification_id":"502"
+   },
+   {
+      "modification_name":"3.0 бензин",
+      "modification_id":"503"
+   },
+   {
+      "modification_name":"3.0 дизель",
+      "modification_id":"504"
+   },
+   {
+      "modification_name":"4.4 бензин",
+      "modification_id":"505"
+   },
+   {
+      "modification_name":"4.8 бензин",
+      "modification_id":"506"
+   }
+]

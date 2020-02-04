@@ -1,0 +1,30 @@
+[
+   {
+      "modification_name":"1.8 бензин",
+      "modification_id":"401"
+   },
+   {
+      "modification_name":"2.0 дизель",
+      "modification_id":"402"
+   },
+   {
+      "modification_name":"2.0 бензин",
+      "modification_id":"403"
+   },
+   {
+      "modification_name":"2.8 бензин",
+      "modification_id":"404"
+   },
+   {
+      "modification_name":"3.0 дизель",
+      "modification_id":"405"
+   },
+   {
+      "modification_name":"3.0 бензин",
+      "modification_id":"406"
+   },
+   {
+      "modification_name":"4.0 бензин",
+      "modification_id":"407"
+   }
+]

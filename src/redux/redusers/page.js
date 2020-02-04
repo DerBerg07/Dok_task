@@ -12,9 +12,10 @@ export function page(state = initialState, action) {
                 page:action.payLoad
             };
         case 'CAR_ADD_VALUE':
+            state.currentCarData.push(action.payLoad.toLocaleLowerCase());
             return {
                 ...state,
-                currentCarData: "das"
+                currentCarData: state.currentCarData
             };
 
         default:
