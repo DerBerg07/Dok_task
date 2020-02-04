@@ -17,13 +17,12 @@ class TableContent extends Component{
 
     componentDidUpdate(nextPros) {
         if(nextPros.page.page !== this.props.page.page) {
-            console.log(this.props.currentCarData);
             switch (this.props.page.page) {
                 case 0:
                     this.props.fetchData(urls["marks"]);
                     break;
                 case 1:
-                   // this.props.fetchData(urls["models"][this.props.]);
+                    this.props.fetchData(urls["models"][this.props.currentCarData[0].toLocaleLowerCase()]);
                     break;
                 case 2:
                     console.log("hello");
@@ -86,7 +85,6 @@ class TableContent extends Component{
 //////////////STATE///////////////////////
 
 const mapStateToProps = state => {
-    console.log(state);
     return {
         data: state.content,
         err: state.err,

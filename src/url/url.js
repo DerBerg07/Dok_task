@@ -5,7 +5,7 @@ export  const urls = {
     marks: 'urls/marks.json',
     models: {
         audi: "urls/audi_(click).json",
-        bmv: "urls/bmw_click.json"
+        bmw: "urls/bmw_(click).json"
     },
     treatment:{
         audi: {
