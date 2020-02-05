@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import {contentFetchData} from '../../../redux/actions/contentData'
 import {connect} from "react-redux";
 import TableElement from "./TableElement/TableElement";
-import Url, {urls} from "../../../url/url";
+import {urls} from "../../../url/url";
 import {currentPageChange, CarValue} from "../../../redux/actions/currentPageData";
 import './TableContent.css'
 import {page} from "../../../redux/redusers/page";
@@ -21,7 +21,6 @@ class TableContent extends Component{
             const mark = this.props.currentCarData[0] ? this.props.currentCarData[0].toLocaleLowerCase() : null,
                   model = this.props.currentCarData[1] ? this.props.currentCarData[1].toLocaleLowerCase(): null,
                   treatment = this.props.currentCarData[2] ? this.props.currentCarData[2].toLocaleLowerCase(): null;
-
             switch (this.props.page) {
                 case 0:
                     this.props.fetchData(urls["marks"]);
@@ -65,9 +64,9 @@ class TableContent extends Component{
 
     render() {
         const content = this.props.data.content;
-        const page = this.props.page;
-
+        const status = this.props.status;
         return(
+            status ?
             content[0] ?
 
             <div id = "TableContent"  >
@@ -77,12 +76,12 @@ class TableContent extends Component{
 
             </div>
                 :
-                page !== null ?
                 <div>
                     no Data
                 </div>
                 :
                 <div />
+
         )
     }
 }
@@ -96,7 +95,8 @@ const mapStateToProps = state => {
         data: state.content,
         err: state.err,
         page: state.page.page,
-        currentCarData: state.page.currentCarData
+        currentCarData: state.page.currentCarData,
+        status: state.table.status
     };
 };
 

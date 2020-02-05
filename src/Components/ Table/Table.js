@@ -13,9 +13,6 @@ class Table extends Component{
         }
     }
 
-    changeContent = (value) => {
-
-    };
 
     render() {
 

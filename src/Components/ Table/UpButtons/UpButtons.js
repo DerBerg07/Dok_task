@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import UpButton from './UpButton/UpButton'
 import {currentPageChange} from "../../../redux/actions/currentPageData";
 import {connect} from "react-redux";
+import {TableStatus} from "../../../redux/actions/tableStatus";
 
 class UpButtons  extends Component{
         constructor(props) {
@@ -28,7 +29,11 @@ class UpButtons  extends Component{
 
         changeActivity =(value) =>{
             if(this.props.activeButton.page >= value){
-            this.props.changer(value);
+                this.props.changer(value);
+                if(this.props.activeButton.page === value || this.props.activeButton.page === null){
+                        this.props.changeStatus()
+                    }
+
             }
         };
 
@@ -45,15 +50,17 @@ class UpButtons  extends Component{
 }
 
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
     return{
-        activeButton: state.page
+        activeButton: state.page,
+        status: state.table.status
     }
 };
 
 const mapDispatchToProps = dispatch =>{
     return{
-        changer: page => dispatch(currentPageChange(page))
+        changer: page => dispatch(currentPageChange(page)),
+        changeStatus: () => dispatch(TableStatus())
     }
 };
 

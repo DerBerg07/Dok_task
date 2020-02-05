@@ -1,6 +1,4 @@
 
-const Url = ['urls/marks.json', "model.json", "year.json"];
-
 export  const urls = {
     marks: 'urls/marks.json',
     models: {
@@ -20,5 +18,4 @@ export  const urls = {
 };
 
 
-export default Url
 
