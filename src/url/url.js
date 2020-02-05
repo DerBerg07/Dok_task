@@ -5,7 +5,7 @@ export  const urls = {
         audi: "urls/audi_(click).json",
         bmw: "urls/bmw_(click).json"
     },
-    treatment:{
+    modification:{
         audi: {
             a4: "urls/audi_a4_(click).txt",
             a6: "urls/audi_a6_(click).txt"

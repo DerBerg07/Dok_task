@@ -10,8 +10,6 @@ import {page} from "../../../redux/redusers/page";
 class TableContent extends Component{
         constructor(props) {
             super(props);
-            this.state ={
-            }
         }
 
 
@@ -20,7 +18,7 @@ class TableContent extends Component{
         if(nextPros.page !== this.props.page) {
             const mark = this.props.currentCarData[0] ? this.props.currentCarData[0].toLocaleLowerCase() : null,
                   model = this.props.currentCarData[1] ? this.props.currentCarData[1].toLocaleLowerCase(): null,
-                  treatment = this.props.currentCarData[2] ? this.props.currentCarData[2].toLocaleLowerCase(): null;
+                  modification = this.props.currentCarData[2] ? this.props.currentCarData[2].toLocaleLowerCase(): null;
             switch (this.props.page) {
                 case 0:
                     this.props.fetchData(urls["marks"]);
@@ -29,10 +27,10 @@ class TableContent extends Component{
                     this.props.fetchData(urls["models"][mark]);
                     break;
                 case 2:
-                    this.props.fetchData(urls["treatment"][mark][model]);
+                    this.props.fetchData(urls["modification"][mark][model]);
                     break;
                 case 3:
-                    alert("Ваш автомобить: " +mark+ " " +model+ " " +treatment)
+                    alert("Ваш автомобить: " +mark+ " " +model+ " " +modification)
             }
 
         }
