@@ -9,11 +9,11 @@ export  const urls = {
     },
     treatment:{
         audi: {
-            a4: "urls/audi_a4_(click).json",
-            a6: "urls/audi_a6_(click).json"
+            a4: "urls/audi_a4_(click).txt",
+            a6: "urls/audi_a6_(click).txt"
         },
-        bmv: {
-            x5: "urls/bmw_x5_(click).json"
+        bmw: {
+            x5: "urls/bmw_x5_(click).txt"
         }
     }
 

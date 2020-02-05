@@ -16,22 +16,29 @@ class TableContent extends Component{
 
 
     componentDidUpdate(nextPros) {
-        if(nextPros.page.page !== this.props.page.page) {
-            switch (this.props.page.page) {
+////////////Check fif new page opened//////////////////////////
+        if(nextPros.page !== this.props.page) {
+            const mark = this.props.currentCarData[0] ? this.props.currentCarData[0].toLocaleLowerCase() : null,
+                  model = this.props.currentCarData[1] ? this.props.currentCarData[1].toLocaleLowerCase(): null,
+                  treatment = this.props.currentCarData[2] ? this.props.currentCarData[2].toLocaleLowerCase(): null;
+
+            switch (this.props.page) {
                 case 0:
                     this.props.fetchData(urls["marks"]);
                     break;
                 case 1:
-                    this.props.fetchData(urls["models"][this.props.currentCarData[0].toLocaleLowerCase()]);
+                    this.props.fetchData(urls["models"][mark]);
                     break;
                 case 2:
-                    console.log("hello");
-
+                    this.props.fetchData(urls["treatment"][mark][model]);
+                    break;
+                case 3:
+                    alert("Ваш автомобить: " +mark+ " " +model+ " " +treatment)
             }
 
         }
 
-
+////////////////////check the longest text of element//////////////
 
         let width = 0;
         this.props.data.content.map(cell =>{
@@ -48,17 +55,17 @@ class TableContent extends Component{
 
 
     changeContent =(value) =>{
-        this.props.addValue(value);
-        let newPage =  this.props.page.page + 1;
-            this.props.changer(newPage);
+        this.props.currentCarData.push(value);
+        this.props.addValue( this.props.currentCarData);
+        let newPage =  this.props.page + 1;
+        this.props.changer(newPage);
     };
 
-
+//////////////RENDER/////////////////
 
     render() {
         const content = this.props.data.content;
-        const page = this.props.page.page;
-        const width = this.state.styleWidth;
+        const page = this.props.page;
 
         return(
             content[0] ?
@@ -88,7 +95,7 @@ const mapStateToProps = state => {
     return {
         data: state.content,
         err: state.err,
-        page: state.page,
+        page: state.page.page,
         currentCarData: state.page.currentCarData
     };
 };
